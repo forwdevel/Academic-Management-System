@@ -1,0 +1,94 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import daovo.ProfessorVo;
+
+public class Professor_Enter_Grade extends JFrame {
+
+	private JPanel contentPane;
+
+	Color c1 = new Color(95,113,97); 	// Dark Green
+	Color c2 = new Color(109,139,116);	// Ash Green
+	Color c3 = new Color(239,234,216);	// light meal
+	Color c4 = new Color(208,201,192);	// dark meal
+	private JTable table;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Professor_Enter_Grade frame = new Professor_Enter_Grade();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Professor_Enter_Grade(ProfessorVo vo) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 980, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(c2);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel fixed_header = new JLabel("성적 입력");
+		fixed_header.setHorizontalAlignment(SwingConstants.CENTER);
+		fixed_header.setBounds(245, 28, 475, 41);
+		fixed_header.setFont(new Font("휴먼엑스포", Font.BOLD, 30));
+		fixed_header.setForeground(c3);
+		contentPane.add(fixed_header);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(133, 87, 714, 390);
+		contentPane.add(scrollPane);
+		
+		// Object[][] object;
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+			},
+			new String[] {
+				"\uD559\uC218\uBC88\uD638", "\uD559\uBC88", "\uD559\uC0DD\uBA85", "\uC131\uC801\uC785\uB825"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, String.class, String.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		table.getColumnModel().getColumn(3).setResizable(false);
+		table.getColumnModel().getColumn(3).setPreferredWidth(30);
+		scrollPane.setViewportView(table);
+		
+		JButton enter_btn = new JButton("등록");
+		enter_btn.setBounds(440, 499, 97, 36);
+		enter_btn.setForeground(c1);
+		enter_btn.setBackground(c3);
+		enter_btn.setBorder(null);
+		enter_btn.setFont(new Font("휴먼엑스포", Font.PLAIN, 16));
+		contentPane.add(enter_btn);
+		
+		
+	}
+}

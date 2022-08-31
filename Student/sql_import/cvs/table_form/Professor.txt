@@ -1,0 +1,7 @@
+create table professor (
+id varchar2(5) primary key,
+name varchar2(20) not null,
+college varchar2(50) not null,
+major varchar2(50) not null,
+enroll number not null,
+);

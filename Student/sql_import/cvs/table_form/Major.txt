@@ -1,0 +1,6 @@
+create table major (
+id varchar2(3) primary key,
+college varchar2(50) not null,
+major varchar2(50) not null,
+code varchar2(4) not null
+);

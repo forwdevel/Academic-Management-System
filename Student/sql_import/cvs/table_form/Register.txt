@@ -1,0 +1,7 @@
+create table register (
+stuid varchar2(20) not null,
+lecid varchar2(20) not null,
+stuname varchar2(50) not null,
+lecname varchar2(50) not null,
+grade varchar2(5)
+);

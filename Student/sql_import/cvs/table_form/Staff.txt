@@ -1,0 +1,5 @@
+create table staff (
+id varchar2(5) primary key,
+name varchar2(30) not null,
+enroll number not null
+);

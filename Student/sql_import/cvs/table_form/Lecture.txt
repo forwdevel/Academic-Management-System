@@ -1,0 +1,14 @@
+create table lecture (
+id varchar2(10) primary key,
+com varchar2(20) not null,
+name varchar2(50) not null,
+credit number not null,
+room varchar2(50) not null,
+"year" number not null,
+semester varchar2(20) not null,
+college varchar2(50) not null,
+major varchar2(50) not null,
+professor varchar2(10) not null,
+"limit" number,
+"current" number not null
+);
